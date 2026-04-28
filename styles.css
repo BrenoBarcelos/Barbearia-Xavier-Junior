@@ -829,3 +829,81 @@ footer {
     padding: 0 24px;
   }
 }
+
+/* ─── MODAL AGENDAMENTO ─── */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(8px);
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.modal-content {
+  background: var(--dark2);
+  width: 100%;
+  max-width: 450px;
+  padding: 40px;
+  border: 1px solid rgba(201, 162, 39, 0.3);
+  position: relative;
+  animation: modalFade 0.4s ease;
+}
+
+@keyframes modalFade {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.close-modal {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 2rem;
+  color: var(--gray);
+  cursor: pointer;
+}
+
+.modal-title {
+  font-family: "Bebas Neue", cursive;
+  font-size: 2.5rem;
+  margin-bottom: 24px;
+  color: var(--white);
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+label {
+  display: block;
+  font-family: "Oswald", sans-serif;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+
+input, select {
+  width: 100%;
+  padding: 12px;
+  background: #111;
+  border: 1px solid #333;
+  color: var(--white);
+  font-family: "Raleway", sans-serif;
+  outline: none;
+}
+
+input:focus, select:focus {
+  border-color: var(--gold);
+}
