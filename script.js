@@ -2,44 +2,46 @@ const modal = document.getElementById("bookingModal");
 const openBtns = document.querySelectorAll(".open-modal");
 const closeBtn = document.querySelector(".close-modal");
 const bookingForm = document.getElementById("bookingForm");
+const dateInput = document.getElementById('data'); // Captura o input de data
 
-// Abrir e Fechar Modal
-openBtns.forEach((btn) => {
-  btn.onclick = (e) => {
+if (bookingForm) {
+  // 1. BLOQUEAR DATAS PASSADAS
+  const dateInput = document.getElementById('data');
+  const today = new Date().toISOString().split('T')[0];
+  if(dateInput) {
+    dateInput.setAttribute('min', today); 
+  }
+
+  // 2. LÓGICA DE ENVIO PARA O WHATSAPP
+  bookingForm.onsubmit = (e) => {
     e.preventDefault();
-    modal.style.display = "flex";
+
+    const nome = document.getElementById("nome").value;
+    const servico = document.getElementById("servico").value;
+    const data = document.getElementById("data").value;
+    const horario = document.getElementById("horario").value;
+
+    // VALIDAR HORÁRIO DE FUNCIONAMENTO (09h às 19h)
+    const [h, m] = horario.split(':').map(Number);
+    if (h < 9 || h >= 19) {
+      alert("Ops! Nosso horário de atendimento é das 09h às 19h. Por favor, escolha outro horário.");
+      return; 
+    }
+
+    // Formatar data
+    const dataFormatada = data.split("-").reverse().join("/");
+    const telefone = "558581573745";
+    const mensagem = `Olá, sou ${nome}, gostaria de marcar: ${servico}, em ${dataFormatada} às ${horario}h.`;
+
+    // Redirecionar
+    const whatsappUrl = `https://wa.me/${telefone}?text=${encodeURIComponent(mensagem)}`;
+    window.open(whatsappUrl, "_blank");
+    
+    // Limpa o formulário e redireciona de volta para a home (opcional)
+    bookingForm.reset();
+    window.location.href = "index.html"; 
   };
-});
-
-closeBtn.onclick = () => (modal.style.display = "none");
-
-window.onclick = (event) => {
-  if (event.target == modal) modal.style.display = "none";
-};
-
-// Lógica do Agendamento via WhatsApp
-bookingForm.onsubmit = (e) => {
-  e.preventDefault();
-
-  const nome = document.getElementById("nome").value;
-  const servico = document.getElementById("servico").value;
-  const data = document.getElementById("data").value;
-  const horario = document.getElementById("horario").value;
-
-  // Formatar data para PT-BR (DD/MM/AAAA)
-  const dataFormatada = data.split("-").reverse().join("/");
-
-  const telefone = "558581573745";
-  const mensagem = `Olá, sou ${nome}, gostaria de marcar um ${servico}, em ${dataFormatada} - ${horario}`;
-
-  // Criar URL codificada
-  const whatsappUrl = `https://wa.me/${telefone}?text=${encodeURIComponent(mensagem)}`;
-
-  // Redirecionar
-  window.open(whatsappUrl, "_blank");
-  modal.style.display = "none";
-  bookingForm.reset();
-};
+}
 
 // Scroll reveal
 const observer = new IntersectionObserver(

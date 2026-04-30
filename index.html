@@ -18,7 +18,7 @@
   </head>
   <body>
     <nav>
-      <a href="#inicio" class="nav-logo">
+      <a href="agendamento.html" class="nav-logo">
         <img
           src="images/Screenshot_20260427_093822_Instagram.jpg"
           alt="BXJ Logo"
@@ -33,7 +33,7 @@
         <li><a href="#galeria">Galeria</a></li>
         <li><a href="#contato">Contato</a></li>
       </ul>
-      <a href="#" class="nav-cta open-modal">Agendar</a>
+      <a href="agendamento.html" class="nav-cta open-modal">Agendar</a>
     </nav>
 
     <section class="hero" id="inicio">
@@ -48,7 +48,9 @@
           confiança.
         </p>
         <div class="hero-actions">
-          <a href="#" class="btn-primary open-modal">Agendar Agora</a>
+          <a href="agendamento.html" class="btn-primary open-modal"
+            >Agendar Agora</a
+          >
           <a href="#galeria" class="btn-outline">Ver Trabalhos</a>
         </div>
         <div class="hero-stats">
@@ -130,34 +132,34 @@
               Corte clássico e refinado, ideal para o ambiente de trabalho e
               ocasiões formais. Acabamento preciso com navalha.
             </div>
-            <span class="service-price">Consultar</span>
+            <span class="service-price">R$30</span>
           </div>
           <div class="service-card">
             <span class="service-icon">⚡</span>
-            <div class="service-name">Corte Degradê</div>
+            <div class="service-name">Barba</div>
             <div class="service-desc">
               Fade perfeito com transição suave, do zero ao comprimento
               desejado. Técnica dominada com máquinas profissionais.
             </div>
-            <span class="service-price">Consultar</span>
-          </div>
-          <div class="service-card">
-            <span class="service-icon">🎨</span>
-            <div class="service-name">Corte + Estilo</div>
-            <div class="service-desc">
-              Expressa sua personalidade com cortes criativos e personalizados.
-              Do curly ao liso, cada cabelo conta uma história.
-            </div>
-            <span class="service-price">Consultar</span>
+            <span class="service-price">R$20</span>
           </div>
           <div class="service-card">
             <span class="service-icon">🪒</span>
-            <div class="service-name">Barba Completa</div>
+            <div class="service-name">Corte + Barba</div>
             <div class="service-desc">
               Modelagem, aparagem e hidratação de barba com navalha quente e
               produtos premium para um acabamento impecável.
             </div>
-            <span class="service-price">Consultar</span>
+            <span class="service-price">R$50</span>
+          </div>
+          <div class="service-card">
+            <span class="service-icon">📐</span>
+            <div class="service-name">Sobrancelha</div>
+            <div class="service-desc">
+              Design e alinhamento com navalha para harmonizar o rosto. Um toque
+              essencial para um visual mais limpo, marcante e renovado.
+            </div>
+            <span class="service-price">R$10</span>
           </div>
           <div class="service-card">
             <span class="service-icon">💎</span>
@@ -166,16 +168,7 @@
               Corte + barba completa + hidratação. A experiência completa da
               Barbearia Xavier Junior para você sair impecável.
             </div>
-            <span class="service-price">Consultar</span>
-          </div>
-          <div class="service-card">
-            <span class="service-icon">🌟</span>
-            <div class="service-name">Pigmentação</div>
-            <div class="service-desc">
-              Coloring e pigmentação para dar aquele toque especial e único ao
-              seu visual. Usando os melhores produtos do mercado.
-            </div>
-            <span class="service-price">Consultar</span>
+            <span class="service-price">R$60</span>
           </div>
         </div>
       </div>
@@ -273,6 +266,18 @@
               <li>Região Metropolitana<br />de Fortaleza</li>
             </ul>
           </div>
+          <div class="map-container">
+            <iframe
+              src="https://www.google.com/maps?q=R.+Sete+de+Setembro,+448+-+Capuan,+Caucaia+-+CE&output=embed"
+              width="100%"
+              height="150"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            >
+            </iframe>
+          </div>
           <div class="footer-col">
             <h4>Horários</h4>
             <ul>
@@ -290,58 +295,5 @@
         </div>
       </div>
     </footer>
-
-    <div id="bookingModal" class="modal">
-      <div class="modal-content">
-        <span class="close-modal">&times;</span>
-        <div class="section-tag">Reservar Horário</div>
-        <h2 class="modal-title">Agendamento Online</h2>
-
-        <form id="bookingForm">
-          <div class="form-group">
-            <label for="nome">Seu Nome</label>
-            <input
-              type="text"
-              id="nome"
-              placeholder="Ex: João Silva"
-              required
-            />
-          </div>
-
-          <div class="form-group">
-            <label for="servico">Serviço Desejado</label>
-            <select id="servico" required>
-              <option value="" disabled selected>Selecione um serviço</option>
-              <option value="Corte Social">Corte Social</option>
-              <option value="Corte Degradê">Corte Degradê</option>
-              <option value="Pigmentação">Corte + Barba</option>
-              <option value="Corte + Estilo">Corte + Estilo</option>
-              <option value="Barba Completa">Barba Completa</option>
-              <option value="Combo Premium">Combo Premium</option>
-              <option value="Pigmentação">Pigmentação</option>
-            </select>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label for="data">Data</label>
-              <input type="date" id="data" required />
-            </div>
-            <div class="form-group">
-              <label for="horario">Horário</label>
-              <input type="time" id="horario" required />
-            </div>
-          </div>
-
-          <button
-            type="submit"
-            class="btn-primary"
-            style="width: 100%; margin-top: 20px"
-          >
-            Confirmar via WhatsApp
-          </button>
-        </form>
-      </div>
-    </div>
   </body>
 </html>

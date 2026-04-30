@@ -854,8 +854,14 @@ footer {
 }
 
 @keyframes modalFade {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .close-modal {
@@ -894,7 +900,8 @@ label {
   margin-bottom: 8px;
 }
 
-input, select {
+input,
+select {
   width: 100%;
   padding: 12px;
   background: #111;
@@ -904,6 +911,25 @@ input, select {
   outline: none;
 }
 
-input:focus, select:focus {
+input:focus,
+select:focus {
   border-color: var(--gold);
+}
+
+.map-container {
+  margin-top: 20px;
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.map-container iframe {
+  display: block;
+  filter: grayscale(80%) contrast(120%);
+  transition: filter 0.3s ease;
+}
+
+.map-container iframe:hover {
+  filter: grayscale(0%) contrast(100%);
 }
